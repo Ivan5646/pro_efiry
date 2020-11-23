@@ -1,3 +1,7 @@
+{% set item = data['items']['pro-efiry']['products'][0] %}
+{% set ticket1 = data['items']['pro-efiry']['ticket1'] %}
+{% set ticket2 = data['items']['pro-efiry']['ticket2'] %}
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -16,9 +20,9 @@
 				<div class="header__inner">
 					<div class="header__left">
 						<p class="header__author">Курс Ольги Ермишиной</p>
-						<h1 class="header__title">Марафон «Pro Эфиры»</h1>
+						<h1 class="header__title">Онлайн курс  «Pro Эфиры»</h1>
 						<p class="header__slogan">Научись c помощью прямых эфиров привлекать клиентов, развивать свое дело и продавать!</p>
-						<!-- <p class="header__date">{{data["event"]["date"]}}</p> -->
+						<p class="header__date">{{data["event"]["date"]}}</p>
 						<button type="button" class="template-btn" id="headerToPaymentBtn">
 							<span>Принять участие</span>
 						</button>
@@ -119,7 +123,7 @@
 			<div class="layout-center-wrapper">
 				<div class="middle-title__inner">
 					<div>
-						<h1 class="middle-title__text">Марафон «Pro Эфиры»</h1>
+						<h1 class="middle-title__text">Онлайн курс  «Pro Эфиры»</h1>
 					</div>
 					<button type="button" class="template-btn" id="middleToPaymentBtn">
 						<span>Принять участие</span>
@@ -136,7 +140,7 @@
 						<h3 class="video-block__title">Специально для вас мы записали видео о&nbsp;курсе</h3>
 					</div>
 					<div class="video-block__right">
-						<iframe class="video-block__frame" src="https://www.youtube.com/embed/zh4IqCTrTbo"
+						<iframe class="video-block__frame" src="https://www.youtube.com/embed/getGQctX9-A"
 							frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
 							allowfullscreen=""></iframe>
 					</div>
@@ -198,7 +202,7 @@
 						</li>
 						<li class="footer__item">
 							<span class="footer__marker"></span>
-							<p class="footer__text">Доступ к чату после окончания марафона на 3 месяца </p>
+							<p class="footer__text">Доступ к чату после окончания Онлайн курс а на 3 месяца </p>
 						</li>
 					</ul>
 
@@ -226,7 +230,7 @@
 				<div class="payment" id="paymentBlock">
 					<div class="payment__header">
 							<span class="payment__text">Стоимость тарифа «ВМЕСТЕ С ГРУППОЙ»:</span>
-							<span class="payment__amount">2990 ₽</span>
+							<span class="payment__amount">{{ticket1['price']}} ₽</span>
 						</div>
 						<div class="payment__inner">
 							<div class="payment__btns-wrap">
@@ -247,7 +251,7 @@
 
 					<div class="payment__header">
 						<span class="payment__text">Стоимость тарифа «VIP»:</span>
-						<span class="payment__amount">6600 ₽</span>
+						<span class="payment__amount">{{ticket2['price']}} ₽</span>
 					</div>
 
 					{% if lead_promo %}
@@ -280,13 +284,13 @@
 		</div>
 
 		<!-- GOODS BLOCK ! IMPORTANT-->
-		<input type="hidden" name="item_number" id="tiktok-instagram_ticket" class="items_quantity" value=1 min=1 disabled
-			data-price="2400" data-old_price="2400" data-name="Академия &quot;Запусти свой ТикТок + Инстаграм&quot; «Стандарт»"
-			data-image="">
+		<input type="hidden" name="item_number" id="{{ticket1['code']}}" class="items_quantity" value=1 min=1 disabled
+			data-price="{{ticket1['price']}}" data-old_price="{{ticket1['old_price']}}" data-name="{{ticket1['name']}}"
+			data-image="{{ticket1['image']}}">
 
-		<input type="hidden" name="item_number" id="tiktok-instagram_ticket2" class="items_quantity2" value=1 min=1 disabled
-			data-price="6600" data-old_price="6600" data-name="Академия &quot;Запусти свой ТикТок + Инстаграм&quot; «Премиум»"
-			data-image="">
+		<input type="hidden" name="item_number" id="{{ticket2['code']}}" class="items_quantity2" value=1 min=1 disabled
+			data-price="{{ticket2['price']}}" data-old_price="{{ticket2['old_price']}}" data-name="{{ticket2['name']}}"
+			data-image="{{ticket2['image']}}">
 		<!-- GOODS BLOCK ! IMPORTANT-->
 
 		<!-- POLICY BLOCK -->
